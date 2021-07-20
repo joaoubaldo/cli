@@ -564,6 +564,8 @@ class TerraformParser(object):
         if isinstance((resource.get('values') or {}).get('tags'), list):
             for tag in resource.get('values', {}).get('tags', {}):
                 if isinstance(tag, dict) and 'key' in tag and 'value' in tag:
+                    if isinstance(tag['key'], dict):
+                        tag['key'] = None
                     tag[tag['key']] = tag['value']
             return True
         return False
