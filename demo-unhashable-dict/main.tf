@@ -6,3 +6,13 @@ module "foo" {
 module "bar" {
   source = "./modules/bar"
 }
+
+provider "spotinst" {
+   token   = "some-token"
+   account = "some-account"
+}
+
+
+provider "aws" {
+   region = "eu-west-1"
+}
